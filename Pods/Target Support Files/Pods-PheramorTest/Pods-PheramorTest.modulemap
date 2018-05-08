@@ -1,0 +1,6 @@
+framework module Pods_PheramorTest {
+  umbrella header "Pods-PheramorTest-umbrella.h"
+
+  export *
+  module * { export * }
+}
