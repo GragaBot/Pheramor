@@ -17,6 +17,8 @@
 		719BF71820A13C11006D2E9C /* EmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719BF71720A13C11006D2E9C /* EmailViewController.swift */; };
 		719BF79B20A14B55006D2E9C /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719BF79A20A14B55006D2E9C /* Helper.swift */; };
 		719BF79D20A15486006D2E9C /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719BF79C20A15486006D2E9C /* Profile.swift */; };
+		71B7698B20A2030E00B2BD3F /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B7698A20A2030E00B2BD3F /* PasswordViewController.swift */; };
+		71B7698D20A2038600B2BD3F /* CircularTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B7698C20A2038600B2BD3F /* CircularTransition.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,8 @@
 		719BF71720A13C11006D2E9C /* EmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailViewController.swift; sourceTree = "<group>"; };
 		719BF79A20A14B55006D2E9C /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		719BF79C20A15486006D2E9C /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		71B7698A20A2030E00B2BD3F /* PasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
+		71B7698C20A2038600B2BD3F /* CircularTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularTransition.swift; sourceTree = "<group>"; };
 		A0448DCABF1F69162108DBFF /* Pods-PheramorTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PheramorTestTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PheramorTestTests/Pods-PheramorTestTests.release.xcconfig"; sourceTree = "<group>"; };
 		BF37B7716C5AAD4CD5444DA1 /* Pods-PheramorTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PheramorTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-PheramorTest/Pods-PheramorTest.release.xcconfig"; sourceTree = "<group>"; };
 		C7ABF0FE7D78B3AF9BA4778A /* Pods-PheramorTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PheramorTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PheramorTest/Pods-PheramorTest.debug.xcconfig"; sourceTree = "<group>"; };
@@ -145,6 +149,8 @@
 				719BF6F120A13082006D2E9C /* LaunchScreen.storyboard */,
 				719BF6F420A13082006D2E9C /* Info.plist */,
 				719BF71720A13C11006D2E9C /* EmailViewController.swift */,
+				71B7698A20A2030E00B2BD3F /* PasswordViewController.swift */,
+				71B7698C20A2038600B2BD3F /* CircularTransition.swift */,
 			);
 			path = PheramorTest;
 			sourceTree = "<group>";
@@ -354,6 +360,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				719BF6E920A13082006D2E9C /* AppDelegate.swift in Sources */,
+				71B7698D20A2038600B2BD3F /* CircularTransition.swift in Sources */,
+				71B7698B20A2030E00B2BD3F /* PasswordViewController.swift in Sources */,
 				719BF79D20A15486006D2E9C /* Profile.swift in Sources */,
 				719BF71820A13C11006D2E9C /* EmailViewController.swift in Sources */,
 				719BF79B20A14B55006D2E9C /* Helper.swift in Sources */,

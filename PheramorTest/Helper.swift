@@ -54,4 +54,31 @@ class Config: NSObject {
     
 }
 
+class Animation {
+    static func createEmitter(with image: UIImage, with emittershape: String, with scale: Float, with birthRate: Float, with emission: Float) -> CAEmitterLayer{
+        let emitter = CAEmitterLayer()
+        emitter.emitterShape = emittershape
+        emitter.emitterCells = generateEmitterCells(with: image, with: scale, with: birthRate, with: emission)
+        
+        return emitter
+    }
+    static func generateEmitterCells(with image: UIImage, with scale: Float, with birthRate: Float, with emission: Float) -> [CAEmitterCell]{
+        var cells = [CAEmitterCell]()
+        let cell = CAEmitterCell()
+        
+   
+        cell.contents = image.cgImage
+        cell.birthRate = birthRate
+        cell.lifetime = 50
+        cell.velocity = CGFloat(25)
+        cell.emissionLongitude = (CGFloat(emission * (.pi/180)))
+        cell.emissionRange = (45 * (.pi / 180))
+        cell.scale = CGFloat(scale)
+        cell.scaleRange = 0.2
+        cell.alphaRange = 1
+        cells.append(cell)
+    
+        return cells
+    }
+}
 

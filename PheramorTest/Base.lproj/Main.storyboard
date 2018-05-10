@@ -19,6 +19,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" semanticContentAttribute="playback" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Rectangle" translatesAutoresizingMaskIntoConstraints="NO" id="eX4-dP-xjp">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slogan" translatesAutoresizingMaskIntoConstraints="NO" id="QRj-D8-gUd">
                                 <rect key="frame" x="67" y="62" width="240" height="128"/>
                                 <constraints>
@@ -35,9 +39,10 @@
                                         <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Email" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="20" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="0VG-EP-LkT" customClass="RoundedTextField" customModule="PheramorTest" customModuleProvider="target">
                                             <rect key="frame" x="28" y="66" width="184" height="35"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                            <textInputTraits key="textInputTraits"/>
+                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.99937003849999995" green="0.54976642129999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                            <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                         </textField>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z2A-MR-9gi" customClass="RoundedButton" customModule="PheramorTest" customModuleProvider="target">
                                             <rect key="frame" x="95" y="173" width="50" height="50"/>
@@ -46,9 +51,13 @@
                                                 <constraint firstAttribute="height" constant="50" id="LTj-Nk-NRT"/>
                                                 <constraint firstAttribute="width" constant="50" id="ZQa-rz-0pK"/>
                                             </constraints>
-                                            <state key="normal" title="Button"/>
+                                            <fontDescription key="fontDescription" type="system" weight="black" pointSize="24"/>
+                                            <state key="normal" title="+">
+                                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
                                             <connections>
                                                 <action selector="next:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4fi-tX-ogy"/>
+                                                <segue destination="Ob8-L4-KhU" kind="show" id="yyx-wB-B2j"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -84,8 +93,40 @@
             </objects>
             <point key="canvasLocation" x="117.59999999999999" y="117.39130434782609"/>
         </scene>
+        <!--Password View Controller-->
+        <scene sceneID="cG6-u2-ZMy">
+            <objects>
+                <viewController id="Ob8-L4-KhU" customClass="PasswordViewController" customModule="PheramorTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rSR-Ei-aur">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OTo-Q0-eRw">
+                                <rect key="frame" x="164" y="296" width="46" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.9993700385093689" green="0.5497664213180542" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="24"/>
+                                <state key="normal" title="-">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismissSecondVC:" destination="Ob8-L4-KhU" eventType="touchUpInside" id="SY8-bw-mIl"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Zt3-b5-27L"/>
+                    </view>
+                    <connections>
+                        <outlet property="back" destination="OTo-Q0-eRw" id="GXH-wz-p4j"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Tr-nh-vQE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="840.79999999999995" y="116.49175412293854"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="Rectangle" width="800" height="600"/>
         <image name="slogan" width="1180" height="424"/>
     </resources>
 </document>
