@@ -6,6 +6,10 @@ target 'PheramorTest' do
 
   # Pods for PheramorTest
   pod 'lottie-ios'
+  pod 'Hero'
+  pod 'IHKeyboardAvoiding'
+  pod 'HGCircularSlider'
+  
 
 
 end

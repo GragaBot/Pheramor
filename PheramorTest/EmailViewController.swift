@@ -7,26 +7,44 @@
 //
 
 import UIKit
+import IHKeyboardAvoiding
+
 
 
 class EmailViewController: UIViewController, UIViewControllerTransitioningDelegate {
 
     @IBOutlet weak var setEmail: RoundedButton!
     @IBOutlet weak var email: RoundedTextField!
-    @IBOutlet weak var visualEffect: UIVisualEffectView!
     
+    @IBOutlet weak var groupView: UIView!
     let transition = CircularTransition()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        visualEffect.clipsToBounds = true
-        visualEffect.layer.cornerRadius = visualEffect.frame.size.height/2
+        //visualEffect.clipsToBounds = true
+        //visualEffect.layer.cornerRadius = visualEffect.frame.size.height/2
        
+        if ProfileInfo.newProfile.email != "" {
+            email.text = ProfileInfo.newProfile.email
+        }
+        snowLove()
+    
+        KeyboardAvoiding.avoidingView = self.groupView
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(self.doneClicked))
         
-       snowLove()
+        toolBar.setItems([doneButton], animated: false)
+        email.inputAccessoryView = toolBar
         
     }
+    @objc func doneClicked(){
+        view.endEditing(true)
+        KeyboardAvoiding.avoidingView = self.groupView
 
+    }
+    
+  
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -36,6 +54,9 @@ class EmailViewController: UIViewController, UIViewControllerTransitioningDelega
         secondVC.transitioningDelegate = self
         secondVC.modalPresentationStyle = .custom
     }
+
+    
+   
     
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transition.transitionMode = .present
@@ -44,15 +65,18 @@ class EmailViewController: UIViewController, UIViewControllerTransitioningDelega
         
         return transition
     }
+    
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transition.transitionMode = .dismiss
         transition.startingPoint = setEmail.center
         transition.circleColor = setEmail.backgroundColor!
+        
         return transition
     }
+
     
     func snowLove(){
-        let emitter = Animation.createEmitter(with: #imageLiteral(resourceName: "heart1"), with: kCAEmitterLayerLine, with: 0.3, with: 0.8, with: 180)
+        let emitter = Animation.createEmitter(with: #imageLiteral(resourceName: "heart1"), with: kCAEmitterLayerLine, with: 0.3, with: 0.8, with: 180, with: 25)
         emitter.emitterPosition = CGPoint(x: view.frame.width/2, y: 0)
         emitter.emitterSize = CGSize(width: view.frame.width, height: 2)
         

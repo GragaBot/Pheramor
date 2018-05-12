@@ -8,6 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		215CC1851C5B0BBBB8C6ADC2 /* Pods_PheramorTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37364312ECA1DBC7A6F47554 /* Pods_PheramorTest.framework */; };
+		7153D58D20A4C772006D3408 /* NameZipcodeHeightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7153D58C20A4C772006D3408 /* NameZipcodeHeightViewController.swift */; };
+		7153D58F20A4CA2C006D3408 /* calm-down.gif in Resources */ = {isa = PBXBuildFile; fileRef = 7153D58E20A4CA2B006D3408 /* calm-down.gif */; };
+		7153D59120A4FF4D006D3408 /* GenderDOBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7153D59020A4FF4D006D3408 /* GenderDOBViewController.swift */; };
+		7153D59320A4FF98006D3408 /* boyRun.gif in Resources */ = {isa = PBXBuildFile; fileRef = 7153D59220A4FF96006D3408 /* boyRun.gif */; };
+		7153D59520A4FFA1006D3408 /* girlRun.gif in Resources */ = {isa = PBXBuildFile; fileRef = 7153D59420A4FFA0006D3408 /* girlRun.gif */; };
+		7153D59720A62E0C006D3408 /* InterestGenderAgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7153D59620A62E0C006D3408 /* InterestGenderAgeViewController.swift */; };
+		7153D59B20A66713006D3408 /* RaceReligionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7153D59A20A66713006D3408 /* RaceReligionViewController.swift */; };
+		7153D59E20A66FD9006D3408 /* UploadDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7153D59D20A66FD9006D3408 /* UploadDataViewController.swift */; };
+		7153D5A620A6D917006D3408 /* ProfileImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7153D5A520A6D916006D3408 /* ProfileImageViewController.swift */; };
 		719BF6E920A13082006D2E9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719BF6E820A13082006D2E9C /* AppDelegate.swift */; };
 		719BF6EE20A13082006D2E9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 719BF6EC20A13082006D2E9C /* Main.storyboard */; };
 		719BF6F020A13082006D2E9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 719BF6EF20A13082006D2E9C /* Assets.xcassets */; };
@@ -19,6 +28,8 @@
 		719BF79D20A15486006D2E9C /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719BF79C20A15486006D2E9C /* Profile.swift */; };
 		71B7698B20A2030E00B2BD3F /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B7698A20A2030E00B2BD3F /* PasswordViewController.swift */; };
 		71B7698D20A2038600B2BD3F /* CircularTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B7698C20A2038600B2BD3F /* CircularTransition.swift */; };
+		71B769D120A40F1600B2BD3F /* Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B769D020A40F1600B2BD3F /* Gif.swift */; };
+		71B769D320A4156E00B2BD3F /* gif.gif in Resources */ = {isa = PBXBuildFile; fileRef = 71B769D220A4156C00B2BD3F /* gif.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +55,15 @@
 		241D5567954A35C0ED42E728 /* Pods_PheramorTestTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PheramorTestTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E8B4BCA0FE3E8223F07A5C7 /* Pods-PheramorTestUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PheramorTestUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PheramorTestUITests/Pods-PheramorTestUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		37364312ECA1DBC7A6F47554 /* Pods_PheramorTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PheramorTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7153D58C20A4C772006D3408 /* NameZipcodeHeightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameZipcodeHeightViewController.swift; sourceTree = "<group>"; };
+		7153D58E20A4CA2B006D3408 /* calm-down.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "calm-down.gif"; sourceTree = "<group>"; };
+		7153D59020A4FF4D006D3408 /* GenderDOBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderDOBViewController.swift; sourceTree = "<group>"; };
+		7153D59220A4FF96006D3408 /* boyRun.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = boyRun.gif; sourceTree = "<group>"; };
+		7153D59420A4FFA0006D3408 /* girlRun.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = girlRun.gif; sourceTree = "<group>"; };
+		7153D59620A62E0C006D3408 /* InterestGenderAgeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestGenderAgeViewController.swift; sourceTree = "<group>"; };
+		7153D59A20A66713006D3408 /* RaceReligionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceReligionViewController.swift; sourceTree = "<group>"; };
+		7153D59D20A66FD9006D3408 /* UploadDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDataViewController.swift; sourceTree = "<group>"; };
+		7153D5A520A6D916006D3408 /* ProfileImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageViewController.swift; sourceTree = "<group>"; };
 		719BF6E520A13082006D2E9C /* PheramorTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PheramorTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		719BF6E820A13082006D2E9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		719BF6ED20A13082006D2E9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -61,6 +81,8 @@
 		719BF79C20A15486006D2E9C /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		71B7698A20A2030E00B2BD3F /* PasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
 		71B7698C20A2038600B2BD3F /* CircularTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularTransition.swift; sourceTree = "<group>"; };
+		71B769D020A40F1600B2BD3F /* Gif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gif.swift; sourceTree = "<group>"; };
+		71B769D220A4156C00B2BD3F /* gif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = gif.gif; sourceTree = "<group>"; };
 		A0448DCABF1F69162108DBFF /* Pods-PheramorTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PheramorTestTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PheramorTestTests/Pods-PheramorTestTests.release.xcconfig"; sourceTree = "<group>"; };
 		BF37B7716C5AAD4CD5444DA1 /* Pods-PheramorTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PheramorTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-PheramorTest/Pods-PheramorTest.release.xcconfig"; sourceTree = "<group>"; };
 		C7ABF0FE7D78B3AF9BA4778A /* Pods-PheramorTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PheramorTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PheramorTest/Pods-PheramorTest.debug.xcconfig"; sourceTree = "<group>"; };
@@ -143,6 +165,8 @@
 			children = (
 				719BF6E820A13082006D2E9C /* AppDelegate.swift */,
 				719BF79A20A14B55006D2E9C /* Helper.swift */,
+				71B769D020A40F1600B2BD3F /* Gif.swift */,
+				71B7698C20A2038600B2BD3F /* CircularTransition.swift */,
 				719BF79C20A15486006D2E9C /* Profile.swift */,
 				719BF6EC20A13082006D2E9C /* Main.storyboard */,
 				719BF6EF20A13082006D2E9C /* Assets.xcassets */,
@@ -150,7 +174,16 @@
 				719BF6F420A13082006D2E9C /* Info.plist */,
 				719BF71720A13C11006D2E9C /* EmailViewController.swift */,
 				71B7698A20A2030E00B2BD3F /* PasswordViewController.swift */,
-				71B7698C20A2038600B2BD3F /* CircularTransition.swift */,
+				7153D58C20A4C772006D3408 /* NameZipcodeHeightViewController.swift */,
+				7153D59020A4FF4D006D3408 /* GenderDOBViewController.swift */,
+				7153D59620A62E0C006D3408 /* InterestGenderAgeViewController.swift */,
+				7153D59A20A66713006D3408 /* RaceReligionViewController.swift */,
+				7153D5A520A6D916006D3408 /* ProfileImageViewController.swift */,
+				7153D59D20A66FD9006D3408 /* UploadDataViewController.swift */,
+				71B769D220A4156C00B2BD3F /* gif.gif */,
+				7153D58E20A4CA2B006D3408 /* calm-down.gif */,
+				7153D59220A4FF96006D3408 /* boyRun.gif */,
+				7153D59420A4FFA0006D3408 /* girlRun.gif */,
 			);
 			path = PheramorTest;
 			sourceTree = "<group>";
@@ -285,7 +318,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				719BF6F320A13082006D2E9C /* LaunchScreen.storyboard in Resources */,
+				71B769D320A4156E00B2BD3F /* gif.gif in Resources */,
 				719BF6F020A13082006D2E9C /* Assets.xcassets in Resources */,
+				7153D59320A4FF98006D3408 /* boyRun.gif in Resources */,
+				7153D58F20A4CA2C006D3408 /* calm-down.gif in Resources */,
+				7153D59520A4FFA1006D3408 /* girlRun.gif in Resources */,
 				719BF6EE20A13082006D2E9C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -362,9 +399,16 @@
 				719BF6E920A13082006D2E9C /* AppDelegate.swift in Sources */,
 				71B7698D20A2038600B2BD3F /* CircularTransition.swift in Sources */,
 				71B7698B20A2030E00B2BD3F /* PasswordViewController.swift in Sources */,
+				7153D5A620A6D917006D3408 /* ProfileImageViewController.swift in Sources */,
+				7153D59720A62E0C006D3408 /* InterestGenderAgeViewController.swift in Sources */,
+				7153D59B20A66713006D3408 /* RaceReligionViewController.swift in Sources */,
 				719BF79D20A15486006D2E9C /* Profile.swift in Sources */,
 				719BF71820A13C11006D2E9C /* EmailViewController.swift in Sources */,
+				7153D59E20A66FD9006D3408 /* UploadDataViewController.swift in Sources */,
+				71B769D120A40F1600B2BD3F /* Gif.swift in Sources */,
+				7153D59120A4FF4D006D3408 /* GenderDOBViewController.swift in Sources */,
 				719BF79B20A14B55006D2E9C /* Helper.swift in Sources */,
+				7153D58D20A4C772006D3408 /* NameZipcodeHeightViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
