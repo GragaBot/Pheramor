@@ -9,7 +9,6 @@
 import UIKit
 import Foundation
 import IHKeyboardAvoiding
-import Hero
 
 class PasswordViewController: UIViewController {
 

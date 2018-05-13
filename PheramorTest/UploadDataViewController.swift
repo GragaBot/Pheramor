@@ -13,6 +13,7 @@ class UploadDataViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //uploadData()
+        snowLove()
         upload()
         // Do any additional setup after loading the view.
     }
@@ -23,67 +24,123 @@ class UploadDataViewController: UIViewController {
     }
     
 
-    func uploadData(){
+    
+    
+    func upload(){
+        
         
         let jsonEncoder = JSONEncoder()
+        guard let url = URL(string: "https://external.dev.pheramor.com/") else { return}
+        //"https://jsonplaceholder.typicode.com/posts"
+        //"https://external.dev.pheramor.com"
+        let session = URLSession.shared
+
+        var request = URLRequest(url:url)
+        request.httpMethod = "POST"
+        //request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        //request.addValue("application/json", forHTTPHeaderField: "Accept")
         do {
             let jsonData = try jsonEncoder.encode(ProfileInfo.newUser)
             
             
             let jsonString = String(data: jsonData, encoding: .utf8)
-            //print(jsonString!)
+            print(jsonString!)
             
             
             let jsonDatas = jsonString?.data(using: .utf8)
             let dictionary = try? JSONSerialization.jsonObject(with: jsonDatas!, options: .mutableLeaves)
-            //print(dictionary!)
             
             
+            //request.httpBody = try JSONSerialization.data(withJSONObject: dictionary!, options: .prettyPrinted) // pass dictionary to nsdata object and set it as request body
+            request.httpBody = try JSONSerialization.data(withJSONObject: dictionary!, options: .prettyPrinted)
             
-            guard let url = URL(string: " https://external.dev.pheramor.com") else { return}
-            //"https://jsonplaceholder.typicode.com/posts"
-            var request = URLRequest(url:url)
-            request.httpMethod = "POST"
-            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-            
-            do{
-                let jsonBody = try JSONSerialization.data(withJSONObject: dictionary!, options: [])
-                request.httpBody = jsonBody
-                //print(jsonBody)
-            }catch{}
             
 
-            let session = URLSession.shared
-            session.dataTask(with: request) {
-                (data, response,error) in
-                if error != nil {
-                    print(error!)
-                    return
-                }
-                let str = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
-                print(str!)
-                guard let data = data else { print("nodata")
-                    return}
-                do {
-                    let json = try JSONSerialization.jsonObject(with: data, options: [])
-                    print(json)
-                } catch{}
-                }.resume()
             
-           
-        } catch {}
+            
+        } catch let error {
+            print(error.localizedDescription)
+            
+            Config.showAlerts(title: "Error", message: "Registration Failed", handler: nil, controller: self)
+            print(error.localizedDescription)
+        }
+        
+        //request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        //request.addValue("application/json", forHTTPHeaderField: "Accept") //
         
         
         
+ 
+        session.dataTask(with: request) {
+            (data, response, error) in
+            guard error == nil else {
+                print(error!)
+                return
+            }
+            guard let data = data else {
+                print("no data")
+                return
+            }
+            
+            
+            
+            do{
+                
+                let jsonString = String(data: data, encoding: .utf8)
+                
+                print(jsonString!)
+                Config.showAlerts(title: "Returned Value", message: jsonString!, handler: nil, controller: self)
+                let responseData = jsonString!.data(using: .utf8)
+                if let responeJSON = (try JSONSerialization.jsonObject(with: responseData!, options: []) as? [String: Any]){
+                    
+                    print(responeJSON)
+                }
+            } catch  {
+                
+            }
+        }.resume()
 
     }
     
-    func upload(){
+    func snowLove(){
+        let emitter = Animation.createEmitter(with: #imageLiteral(resourceName: "h3"), with: kCAEmitterLayerLine, with: 0.3, with: 0.8, with: 180, with: 25)
+        emitter.emitterPosition = CGPoint(x: view.frame.width/2, y: 0)
+        emitter.emitterSize = CGSize(width: view.frame.width, height: 2)
+        
+        view.layer.addSublayer(emitter)
+        //emitter.emitterPosition
+    }
+    
+  
+    /*   testing purpose
+    func jsonStringToObject(String: String) {
+        let data = String.data(using: .utf8)!
+        do {
+            if let jsonArray = try JSONSerialization.jsonObject(with: data, options : .allowFragments) as? [Dictionary<String,Any>]
+            {
+                print(jsonArray)
+            } else {
+                print("bad json")
+            }
+        } catch let error as NSError {
+            print(error)
+        }
+        
+        let parameters = ["name": "aaa", "password": "bbb" ]as Dictionary<String, String>
+
+        print(parameters)
+    }*/
+    /*
+    func uploadData(){
+        
+        let postDictionary = ["status" : false,
+                              "message" :"OK"
+            ] as [String : Any]
         let jsonEncoder = JSONEncoder()
         guard let url = URL(string: "https://external.dev.pheramor.com") else { return}
         //"https://jsonplaceholder.typicode.com/posts"
         let session = URLSession.shared
-
+        
         var request = URLRequest(url:url)
         request.httpMethod = "POST"
         do {
@@ -97,7 +154,9 @@ class UploadDataViewController: UIViewController {
             let jsonDatas = jsonString?.data(using: .utf8)
             let dictionary = try? JSONSerialization.jsonObject(with: jsonDatas!, options: .mutableLeaves)
             
-            request.httpBody = try JSONSerialization.data(withJSONObject: dictionary!, options: .prettyPrinted) // pass dictionary to nsdata object and set it as request body
+            
+            //request.httpBody = try JSONSerialization.data(withJSONObject: dictionary!, options: .prettyPrinted) // pass dictionary to nsdata object and set it as request body
+            request.httpBody = try JSONSerialization.data(withJSONObject: postDictionary, options: .prettyPrinted)
         } catch let error {
             print(error.localizedDescription)
         }
@@ -119,87 +178,21 @@ class UploadDataViewController: UIViewController {
             
             do {
                 //create json object from data
-                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
+                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
                     print(json)
                     print("herer")
                     // handle json...
                 }
                 
-            } catch let error {
+            } catch let error{
+                Config.showAlerts(title: "Error", message: "Registration Failed", handler: nil, controller: self)
                 print(error.localizedDescription)
-            }
-        })
-        task.resume()
-
-    }
-    /*   testing purpose
-    func jsonStringToObject(String: String) {
-        let data = String.data(using: .utf8)!
-        do {
-            if let jsonArray = try JSONSerialization.jsonObject(with: data, options : .allowFragments) as? [Dictionary<String,Any>]
-            {
-                print(jsonArray)
-            } else {
-                print("bad json")
-            }
-        } catch let error as NSError {
-            print(error)
-        }
-        
-        let parameters = ["name": "aaa", "password": "bbb" ]as Dictionary<String, String>
-
-        print(parameters)
-    }*/
-    
-    
-    @IBAction func submitAction(sender: AnyObject) {
-        
-        //declare parameter as a dictionary which contains string as key and value combination. considering inputs are valid
-        
-        let parameters = ["name": "ddd", "password": "ddd"] as Dictionary<String, String>
-        
-        //create the url with URL
-        let url = URL(string: "http://myServerName.com/api")! //change the url
-        
-        //create the session object
-        let session = URLSession.shared
-        
-        //now create the URLRequest object using the url object
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST" //set http method as POST
-        
-        do {
-            request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted) // pass dictionary to nsdata object and set it as request body
-            
-        } catch let error {
-            print(error.localizedDescription)
-        }
-        
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        
-        //create dataTask using the session object to send data to the server
-        let task = session.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
-            
-            guard error == nil else {
-                return
-            }
-            
-            guard let data = data else {
-                return
-            }
-            
-            do {
-                //create json object from data
-                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
-                    print(json)
-                    // handle json...
-                }
                 
-            } catch let error {
-                print(error.localizedDescription)
             }
         })
         task.resume()
+        Config.showAlerts(title: "Congrats", message: "Registration Complete", handler: nil, controller: self)
+        
     }
+    */
 }

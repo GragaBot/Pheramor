@@ -10,6 +10,7 @@ import UIKit
 
 class ProfileImageViewController: UIViewController, UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     
+    @IBOutlet weak var gif: RoundedImageView!
     @IBOutlet weak var profileImage: RoundedImageView!
     
     @IBOutlet weak var selectProfileImageBtn: RoundedButton!
@@ -17,8 +18,16 @@ class ProfileImageViewController: UIViewController, UIImagePickerControllerDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        profileImage.loadGif(name: "avatar")
-
+        gif.loadGif(name: "avatar")
+        if ProfileInfo.newProfile.profileImage != "" {
+            profileImage.image = UIImage.imageWithBase64String(base64String: ProfileInfo.newProfile.profileImage)
+        }
+        /*
+        if ProfileInfo.newProfile.profileImage != "" {
+            profileImage.image = UIImage.imageWithBase64String(base64String: ProfileInfo.newProfile.profileImage)
+        } else {
+            profileImage.loadGif(name: "avatar")
+        }*/
 
         // Do any additional setup after loading the view.
     }
@@ -32,7 +41,6 @@ class ProfileImageViewController: UIViewController, UIImagePickerControllerDeleg
         presentImagePickerView()
     }
     func presentImagePickerView() {
-        profileImage.loadGif(name: "calm-down")
         let imagePicker = UIImagePickerController()
         imagePicker.sourceType = .photoLibrary
         imagePicker.delegate = self
@@ -43,6 +51,8 @@ class ProfileImageViewController: UIViewController, UIImagePickerControllerDeleg
     func setImage(withImage image: UIImage) {
         
         self.profileImage.image = image
+        uploadImage(withImage: image)
+
         
     }
     
@@ -84,8 +94,14 @@ class ProfileImageViewController: UIViewController, UIImagePickerControllerDeleg
     
     @IBAction func nextStep(_ sender: Any) {
         
-        saveImage(image: profileImage.image!)
-        uploadImage(withImage: profileImage.image!)
+        
+        
+        if ProfileInfo.newProfile.profileImage != "" {
+            //saveImage(image: profileImage.image!)
+            uploadImage(withImage: profileImage.image!)
+        } else {
+            Config.showAlerts(title: "Error", message: "Select Profile Image", handler: nil, controller: self)
+        }
         
     }
     

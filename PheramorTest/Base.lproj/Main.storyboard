@@ -802,7 +802,10 @@
                                     <action selector="dismiss:" destination="MRQ-io-oUV" eventType="touchUpInside" id="QnU-ax-wqj"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NWZ-QL-97e" customClass="RoundedImageView" customModule="PheramorTest" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WGh-4J-5jD" customClass="RoundedImageView" customModule="PheramorTest" customModuleProvider="target">
+                                <rect key="frame" x="67" y="223" width="240" height="240"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NWZ-QL-97e" customClass="RoundedImageView" customModule="PheramorTest" customModuleProvider="target">
                                 <rect key="frame" x="67" y="223" width="240" height="240"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="NWZ-QL-97e" secondAttribute="height" multiplier="1:1" id="adM-xk-pUC"/>
@@ -848,16 +851,20 @@
                         <color key="backgroundColor" red="0.0" green="0.61110746859999998" blue="0.86899167300000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="NWZ-QL-97e" firstAttribute="centerX" secondItem="oiW-HA-0Ys" secondAttribute="centerX" id="1YE-ZS-mCS"/>
+                            <constraint firstItem="WGh-4J-5jD" firstAttribute="centerY" secondItem="NWZ-QL-97e" secondAttribute="centerY" id="28l-6E-O0y"/>
                             <constraint firstItem="oiW-HA-0Ys" firstAttribute="trailing" secondItem="22A-In-kjq" secondAttribute="trailing" constant="16" id="2jx-XZ-XtX"/>
+                            <constraint firstItem="WGh-4J-5jD" firstAttribute="centerX" secondItem="NWZ-QL-97e" secondAttribute="centerX" id="3UR-sf-ZxF"/>
                             <constraint firstItem="22A-In-kjq" firstAttribute="centerY" secondItem="oiW-HA-0Ys" secondAttribute="centerY" id="8Fe-bI-2eb"/>
                             <constraint firstItem="pnt-As-b0F" firstAttribute="width" secondItem="NWZ-QL-97e" secondAttribute="width" id="Dkd-uL-wgV"/>
                             <constraint firstItem="pnt-As-b0F" firstAttribute="height" secondItem="NWZ-QL-97e" secondAttribute="height" id="KS5-0f-FFp"/>
                             <constraint firstItem="pnt-As-b0F" firstAttribute="centerX" secondItem="NWZ-QL-97e" secondAttribute="centerX" id="Kv1-As-FzK"/>
                             <constraint firstItem="pnt-As-b0F" firstAttribute="centerY" secondItem="NWZ-QL-97e" secondAttribute="centerY" id="LBn-R6-T0n"/>
+                            <constraint firstItem="WGh-4J-5jD" firstAttribute="height" secondItem="NWZ-QL-97e" secondAttribute="height" id="LdE-dJ-CLh"/>
                             <constraint firstItem="NYF-2s-Sav" firstAttribute="leading" secondItem="oiW-HA-0Ys" secondAttribute="leading" constant="16" id="Non-14-2wh"/>
                             <constraint firstItem="oDp-y5-Xhd" firstAttribute="top" secondItem="oiW-HA-0Ys" secondAttribute="top" constant="30" id="OSo-Ur-ScO"/>
                             <constraint firstItem="oDp-y5-Xhd" firstAttribute="leading" secondItem="tqg-Y2-7Hl" secondAttribute="trailing" constant="25" id="RRD-50-MT7"/>
                             <constraint firstItem="22A-In-kjq" firstAttribute="leading" secondItem="oiW-HA-0Ys" secondAttribute="leading" constant="16" id="S83-cD-nrX"/>
+                            <constraint firstItem="WGh-4J-5jD" firstAttribute="width" secondItem="NWZ-QL-97e" secondAttribute="width" id="SaE-dm-gez"/>
                             <constraint firstItem="tqg-Y2-7Hl" firstAttribute="leading" secondItem="NYF-2s-Sav" secondAttribute="trailing" constant="25" id="WCC-K0-RhA"/>
                             <constraint firstItem="22A-In-kjq" firstAttribute="centerX" secondItem="oiW-HA-0Ys" secondAttribute="centerX" id="bqU-mR-qcs"/>
                             <constraint firstItem="NWZ-QL-97e" firstAttribute="centerY" secondItem="oiW-HA-0Ys" secondAttribute="centerY" id="f5V-x2-OIz"/>
@@ -869,6 +876,7 @@
                         <viewLayoutGuide key="safeArea" id="oiW-HA-0Ys"/>
                     </view>
                     <connections>
+                        <outlet property="gif" destination="WGh-4J-5jD" id="jEm-QE-QaS"/>
                         <outlet property="profileImage" destination="NWZ-QL-97e" id="oYA-bi-5ld"/>
                         <outlet property="selectProfileImageBtn" destination="pnt-As-b0F" id="4NK-Vi-42o"/>
                     </connections>
@@ -1015,7 +1023,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NkE-K8-sn1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6043" y="115"/>
+            <point key="canvasLocation" x="6062" y="116"/>
         </scene>
     </scenes>
     <resources>

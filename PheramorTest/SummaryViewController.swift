@@ -48,8 +48,6 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         self.tableView.delegate = self
         
-        self.tableView.reloadDataWithAnimate(animationTime: 1, interval: 0.1)
-        
         for i in 0 ..< 13 {
             let math = CGFloat(222 - (10 * i))
             let lightblue = UIColor.init(red: 0, green: 156/255    , blue: math/255, alpha: 1)
@@ -57,9 +55,11 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
             colors.append(lightblue)
         }
 
+        
+        self.tableView.reloadDataWithAnimate(animationTime: 1, interval: 0.1)
+        
 
     }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -116,14 +116,7 @@ class SummaryTableViewCell: UITableViewCell {
 }
 
 extension UITableView {
-    /**
-     *  UITableView重新加载动画
-     *
-     *  @param   direct    cell运动方向
-     *  @param   time      动画持续时间，设置成1.0
-     *  @param   interval  每个cell间隔，设置成0.1
-     *  @example self.tableView.reloadDataWithAnimate(AnimationDirect.DropDownFromTop, animationTime: 0.5, interval: 0.05)
-     */
+  
     func reloadDataWithAnimate(animationTime:TimeInterval,interval:TimeInterval)->Void{
         self.setContentOffset(self.contentOffset, animated: false)
         UIView.animate(withDuration: 0.2, animations: { () -> Void in

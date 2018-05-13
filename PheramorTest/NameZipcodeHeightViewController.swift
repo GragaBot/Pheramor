@@ -7,9 +7,8 @@
 //
 
 import UIKit
-import Hero
 
-class NameZipcodeHeightViewController: UIViewController {
+class NameZipcodeHeightViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var heightLabel: UILabel!
     
     @IBOutlet weak var gifView: UIImageView!
@@ -34,7 +33,13 @@ class NameZipcodeHeightViewController: UIViewController {
         firstName.inputAccessoryView = toolBar
         lastName.inputAccessoryView = toolBar
         zipcode.inputAccessoryView = toolBar
-
+        zipcode.delegate = self
+        if ProfileInfo.newProfile.firstname != ""{
+            firstName.text = ProfileInfo.newProfile.firstname
+            lastName.text = ProfileInfo.newProfile.lastname
+            zipcode.text = String(ProfileInfo.newProfile.zipcode)
+            
+        }
     }
     @objc func doneClicked(){
         view.endEditing(true)
@@ -44,6 +49,11 @@ class NameZipcodeHeightViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let invalidCharacters = CharacterSet(charactersIn: "0123456789").inverted
+        return string.rangeOfCharacter(from: invalidCharacters, options: [], range: string.startIndex ..< string.endIndex) == nil
+    }
+    
     
     @IBAction func changeHeight(_ sender: UISlider) {
         height.value = roundf(height.value)
@@ -57,7 +67,7 @@ class NameZipcodeHeightViewController: UIViewController {
     }
     
     @IBAction func nextStep(_ sender: Any) {
-        if firstName.text?.isEmpty == false  && zipcode.text?.isEmpty == false && lastName.text?.isEmpty == false{
+        if firstName.text?.isEmpty == false  && zipcode.text?.isEmpty == false && lastName.text?.isEmpty == false {
             ProfileInfo.newProfile.firstname = firstName.text!
             ProfileInfo.newProfile.lastname = lastName.text!
             ProfileInfo.newProfile.zipcode = Int(zipcode.text!)!
@@ -67,8 +77,7 @@ class NameZipcodeHeightViewController: UIViewController {
            
             
             //presentNext()
-            
-        }else {
+        } else {
             Config.showAlerts(title:"Error", message: "Please Enter Required Information", handler: nil, controller: self )
         }
         
