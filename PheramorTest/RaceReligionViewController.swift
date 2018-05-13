@@ -89,7 +89,7 @@ class RaceReligionViewController: UIViewController {
         }
 
         
-        print(race)
+        //print(race)
     }
     
     @IBAction func dismiss(_ sender: Any) {
@@ -98,7 +98,7 @@ class RaceReligionViewController: UIViewController {
     }
     
     
-/*
+
     @IBAction func uploadData(_ sender: Any) {
         
         guard let url = URL(string: "https://external.dev.pheramor.com/") else { return}
@@ -146,7 +146,7 @@ class RaceReligionViewController: UIViewController {
         
         
         
-    }*/
+    }
     
     
 

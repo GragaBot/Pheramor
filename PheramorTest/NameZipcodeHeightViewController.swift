@@ -64,13 +64,7 @@ class NameZipcodeHeightViewController: UIViewController {
             ProfileInfo.newProfile.height = Int(height.value)
             
             
-            print(ProfileInfo.newProfile.firstname)
-            print(ProfileInfo.newProfile.lastname)
-
-            print(ProfileInfo.newProfile.zipcode)
-            print(ProfileInfo.newProfile.height)
-
-            
+           
             
             //presentNext()
             

@@ -110,8 +110,8 @@ class ProfileInfo : Encodable
 //https://jsonplaceholder.typicode.com/posts
 
 
-class Register{
-    struct Register: Encodable {
+
+struct Register : Encodable{
         let email: String
         let firstname: String
         let lastname: String
@@ -126,6 +126,23 @@ class Register{
         let religion: String?
         let profileImage:String
         
+        init(email:String!, password:String!, firstname:String!, lastname:String!, zipcode: Int!, height:Int!, gender: String!, dob:String!, interestGender: String!, interestAge: [Int]!, race: String?, religion: String?, profileImage: String!){
+            
+            self.email = email
+            self.password = password
+            self.firstname = firstname
+            self.lastname = lastname
+            self.zipcode = zipcode
+            self.height = height
+            self.gender = gender
+            self.dob = dob
+            self.interestGender = interestGender
+            self.interestAge = interestAge
+            self.race = race
+            self.religion = religion
+            self.profileImage = profileImage
+            
+        }
         init?(json: [String: Any]) {
             // As a rule, the developer needs to plan for cases when the data may be polluted.
             // Almost anything can be received, keys may change over updates, contents can change over updates.
@@ -161,6 +178,6 @@ class Register{
             self.religion = json["religion"] as? String
             self.profileImage = profileImage
         }
-    }
+    
 }
 

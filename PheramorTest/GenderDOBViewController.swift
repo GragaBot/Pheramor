@@ -21,7 +21,6 @@ class GenderDOBViewController: UIViewController {
         girlImage.loadGif(name: "girlRun")
 
         boyImage.loadGif(name: "boyRun")
-        print("here")
         //genderL.clipsToBounds = true
         //genderL.layer.cornerRadius = genderL.frame.size.height/2
         var today: Date {
@@ -80,7 +79,7 @@ class GenderDOBViewController: UIViewController {
             let selectedDate = dateFormatter.string(from: dobPickerView.date)
             
             ProfileInfo.newProfile.dob = selectedDate
-            print(selectedDate)
+            //print(selectedDate)
             
         }
     }

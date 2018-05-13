@@ -40,10 +40,10 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
         for child in mirror.children{
             keys.append(child.label!)
             value.append(child.value)
-            print("key: \(String(describing: child.label)), value: \(child.value)")
+            //print("key: \(String(describing: child.label)), value: \(child.value)")
         }
-        print(keys)
-        print(value)
+        //print(keys)
+        //print(value)
         self.tableView.dataSource = self
         
         self.tableView.delegate = self
