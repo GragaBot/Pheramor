@@ -66,15 +66,17 @@ class InterestGenderAgeViewController: UIViewController, UIScrollViewDelegate, U
 
             interestedGender.text = "FEMALE"
             interestedGender.textColor = lightred
+            ProfileInfo.newProfile.interestGender  = "Female"
             
 
         } else {
             
             interestedGender.text = "MALE"
             interestedGender.textColor = lightblue
+            ProfileInfo.newProfile.interestGender  = "Male"
             
         }
-        ProfileInfo.newProfile.interestGender = currentPage
+        
         
     }
 

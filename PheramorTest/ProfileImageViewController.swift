@@ -17,7 +17,8 @@ class ProfileImageViewController: UIViewController, UIImagePickerControllerDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        profileImage.loadGif(name: "avatar")
+
 
         // Do any additional setup after loading the view.
     }
@@ -44,15 +45,15 @@ class ProfileImageViewController: UIViewController, UIImagePickerControllerDeleg
         self.profileImage.image = image
         
     }
-    /*
+    
     func uploadImage(withImage image: UIImage) {
-        let imageData = UIImageJPEGRepresentation(image, 0.7)!
         
-        API.userAPI.uploadCurrentUserProfileImage(imageData: imageData, onSuccess: {
-            print("Upload Success")
-        })
+       let imageData =  image.base64String()
         
-    }*/
+        ProfileInfo.newProfile.profileImage = imageData as String
+        
+        
+    }
     
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -74,7 +75,51 @@ class ProfileImageViewController: UIViewController, UIImagePickerControllerDeleg
         }
         
     }
-
     
+    @IBAction func dimiss(_ sender: Any) {
+        
+        dismiss(animated: true, completion: nil)
+
+    }
+    
+    @IBAction func nextStep(_ sender: Any) {
+        
+        saveImage(image: profileImage.image!)
+        uploadImage(withImage: profileImage.image!)
+        
+    }
+    
+    func saveImage(image: UIImage) -> Bool {
+        guard let data = UIImageJPEGRepresentation(image, 1) ?? UIImagePNGRepresentation(image) else {
+            return false
+        }
+        guard let directory = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) as NSURL else {
+            return false
+        }
+        do {
+            try data.write(to: directory.appendingPathComponent("fileName.png")!)
+            return true
+        } catch {
+            print(error.localizedDescription)
+            return false
+        }
+    }
 
 }
+
+extension UIImage {
+    func base64String() -> String {
+        let imageData : NSData = UIImageJPEGRepresentation(self, 0.1)! as NSData
+       
+        
+        let base64String = imageData.base64EncodedString(options: .lineLength64Characters)
+        return base64String
+    }
+    
+    static func imageWithBase64String(base64String: String) -> UIImage {
+        let decodedData = Data(base64Encoded: base64String, options: .ignoreUnknownCharacters)!
+        let postImage = UIImage(data: decodedData)!
+        return postImage
+    }
+}
+

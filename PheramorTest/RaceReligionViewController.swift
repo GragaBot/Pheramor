@@ -44,7 +44,7 @@ class RaceReligionViewController: UIViewController {
         religion.clipsToBounds = true
         self.religion.layer.cornerRadius = 25
         //Set the drop down menu's options
-        religion.dropView.dropDownOptions = [ "Christianity", "Gnosticism", "Islam", "Judaism", "Buddhism", "Hinduism","Others","None","Religion"]
+        religion.dropView.dropDownOptions = [ "Christianity", "Gnosticism", "Islam", "Judaism", "Buddhism", "Hinduism","Others","None","N/A"]
         
         // Do any additional setup after loading the view.
     }
@@ -68,7 +68,7 @@ class RaceReligionViewController: UIViewController {
         race.clipsToBounds = true
         self.race.layer.cornerRadius = 25
         //Set the drop down menu's options
-        race.dropView.dropDownOptions = [ "American Indian", "Asian", "African American", "Hispanic or Latino", "Native Hawaiian", "White", "Race"]
+        race.dropView.dropDownOptions = [ "American Indian", "Asian", "African American", "Hispanic or Latino", "Native Hawaiian", "White", "N/A"]
        
     }
 
@@ -77,10 +77,17 @@ class RaceReligionViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     @IBAction func nextStep(_ sender: Any) {
-        let race = self.race.dropView.selectedIndex
-        ProfileInfo.newProfile.race = race
-        let religion = self.religion.dropView.selectedIndex
-        ProfileInfo.newProfile.religion = religion
+        if (self.race.titleLabel?.isEqual("Race"))! {
+            ProfileInfo.newProfile.race = "N/A"
+        } else {
+            ProfileInfo.newProfile.race = self.race.title(for: .normal)!
+        }
+        if (self.religion.titleLabel?.isEqual("Religion"))!{
+            ProfileInfo.newProfile.religion = "N/A"
+        } else {
+            ProfileInfo.newProfile.religion = self.religion.title(for: .normal)!
+        }
+
         
         print(race)
     }

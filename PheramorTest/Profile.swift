@@ -6,42 +6,33 @@
 //  Copyright © 2018 T. All rights reserved.
 //
 
-class ProfileInfo
+class ProfileInfo : Encodable
 {
-    var email: String
-    var password: String
+    let email: String!
+    let password: String!
     
-    var firstname: String   // can user change their name later?
-    var lastname: String
-    var zipcode: Int
-    var height: Int
+    let firstname: String!
+    let lastname: String!
+    let zipcode: Int!
+    let height: Int!
     
-    var dob: String
-    var gender: Int
+    let dob: String!
+    let gender: String!
     
-    var interestGender: Int
-    var interestAge: [Int]
+    let interestGender: String!
+    let interestAge: [Int]!
     
-    var race: Int?
-    var religion: Int?
+    var race: String?
+    var religion: String?
+    let profileImage:String!
     
-    struct ProfileKeys{
-        static let email = "email"
-        static let password = "password"
-        static let firstname = "firstname"
-        static let lastname = "lastname"
-        static let zipcode = "zipcode"
-        static let height = "height"
+    static var newUser: ProfileInfo?
+    
+    
+    
+    struct newProfile {
+       
         
-        static let dob = "dob"
-        static let gender = "gender"
-        static let interestGender = "interestGender"
-        static let interestAge = "interestAge"
-        static let religion = "religion"
-        static let race = "race"
-    }
-    
-    struct newProfile{
         static var email: String = ""
         static var password: String = ""
         
@@ -50,34 +41,126 @@ class ProfileInfo
         static var zipcode: Int = -1
         static var height: Int = -1
         
-        static var gender: Int = -1
+        static var gender: String = ""
         static var dob: String = ""
         
-        static var interestGender = 0 
+        static var interestGender :String = "Female"
         static var interestAge = [-1, -1]
-        static var race: Int = -1
-        static var religion: Int = -1
+        static var race: String = "N/A"
+        static var religion: String = "N/A"
+        static var profileImage: String = ""
         
         
     }
     
-    init(profileDict: [String:Any]){
-        email = profileDict[ProfileKeys.email] as! String
-        password = profileDict[ProfileKeys.password] as! String
-        firstname = profileDict[ProfileKeys.firstname] as! String
-        lastname = profileDict[ProfileKeys.lastname] as! String
-        zipcode = profileDict[ProfileKeys.zipcode] as! Int
-        height = profileDict[ProfileKeys.height] as! Int
-        dob = profileDict[ProfileKeys.dob] as! String
-        gender = profileDict[ProfileKeys.gender] as! Int
+    init(email:String!, password:String!, firstname:String!, lastname:String!, zipcode: Int!, height:Int!, gender: String!, dob:String!, interestGender: String!, interestAge: [Int]!, race: String?, religion: String?, profileImage: String!){
         
-        interestGender = profileDict[ProfileKeys.interestGender] as! Int
-        interestAge = profileDict[ProfileKeys.interestAge] as! [Int]
-        religion = profileDict[ProfileKeys.religion] as? Int
-        race = profileDict[ProfileKeys.race] as? Int
+        self.email = email
+        self.password = password
+        self.firstname = firstname
+        self.lastname = lastname
+        self.zipcode = zipcode
+        self.height = height
+        self.gender = gender
+        self.dob = dob
+        self.interestGender = interestGender
+        self.interestAge = interestAge
+        self.race = race
+        self.religion = religion
+        self.profileImage = profileImage
         
     }
+    init?(json:[String: Any]){
+        guard let email = json["email"] as? String,
+              let password = json["password"] as? String,
+              let firstname = json["firstname"] as? String,
+              let lastname = json["lastname"] as? String,
+              let zipcode = json["zipcode"] as? Int,
+              let height = json["height"] as? Int,
+              let gender = json["gender"] as? String,
+              let dob = json["dob"] as? String,
+              let interestGender = json["interestGender"] as? String,
+              let interestAge = json["interestAge"] as? [Int],
+              let profileImage = json["profileImage"] as? String
+            
+            
+        else {
+            return nil
+        }
+        
+        self.email = email
+        self.password = password
+        self.firstname = firstname
+        self.lastname = lastname
+        self.zipcode = zipcode
+        self.height = height
+        self.gender = gender
+        self.dob = dob
+        self.interestGender = interestGender
+        self.interestAge = interestAge
+        self.race = json["race"] as? String
+        self.religion = json["religion"] as? String
+        self.profileImage = profileImage
+    }
     
+
+
 }
+
 //https://jsonplaceholder.typicode.com/posts
+
+
+class Register{
+    struct Register: Encodable {
+        let email: String
+        let firstname: String
+        let lastname: String
+        let password: String
+        let zipcode: Int
+        let height: Int
+        let gender: String
+        let dob:String
+        let interestAge: [Int]
+        let interestGender: String
+        let race: String?
+        let religion: String?
+        let profileImage:String
+        
+        init?(json: [String: Any]) {
+            // As a rule, the developer needs to plan for cases when the data may be polluted.
+            // Almost anything can be received, keys may change over updates, contents can change over updates.
+            // Use optional chaining for required values
+            guard
+                let email = json["email"] as? String,
+                let password = json["password"] as? String,
+                let firstname = json["firstname"] as? String,
+                let lastname = json["lastname"] as? String,
+                let zipcode = json["zipcode"] as? Int,
+                let height = json["height"] as? Int,
+                let gender = json["gender"] as? String,
+                let dob = json["dob"] as? String,
+                let interestGender = json["interestGender"] as? String,
+                let interestAge = json["interestAge"] as? [Int],
+                let profileImage = json["profileImage"] as? String
+                else {
+                    // If the JSON is missing any of the required fields, the resulting
+                    // object wouldn't be considered valid.
+                    return nil
+            }
+            self.email = email
+            self.password = password
+            self.firstname = firstname
+            self.lastname = lastname
+            self.zipcode = zipcode
+            self.height = height
+            self.gender = gender
+            self.dob = dob
+            self.interestGender = interestGender
+            self.interestAge = interestAge
+            self.race = json["race"] as? String
+            self.religion = json["religion"] as? String
+            self.profileImage = profileImage
+        }
+    }
+}
 

@@ -29,9 +29,9 @@ class GenderDOBViewController: UIViewController {
         }
         dobPickerView.maximumDate = today
         
-        if ProfileInfo.newProfile.gender == 1 {
+        if ProfileInfo.newProfile.gender == "Male" {
             setBoy()
-        } else if ProfileInfo.newProfile.gender == 0{
+        } else if ProfileInfo.newProfile.gender == "Female"{
             setGirl()
         }
         
@@ -57,21 +57,21 @@ class GenderDOBViewController: UIViewController {
         girlImage.alpha = 0.3
         boyImage.layer.borderWidth=5
         girlImage.layer.borderWidth = 3
-        ProfileInfo.newProfile.gender = 1
+        ProfileInfo.newProfile.gender = "Male"
     }
     func setGirl() {
         boyImage.alpha = 0.3
         girlImage.alpha = 1
         boyImage.layer.borderWidth=3
         girlImage.layer.borderWidth = 5
-        ProfileInfo.newProfile.gender = 0
+        ProfileInfo.newProfile.gender = "Female"
     }
     @IBAction func dismiss(_ sender: Any) {
          self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func nextStep(_ sender: Any) {
-        if ProfileInfo.newProfile.gender == -1 {
+        if ProfileInfo.newProfile.gender == "" {
             Config.showAlerts(title:"Error", message: "Please Enter Required Information", handler: nil, controller: self )
         } else {
             
