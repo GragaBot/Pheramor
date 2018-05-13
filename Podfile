@@ -5,8 +5,7 @@ target 'PheramorTest' do
   use_frameworks!
 
   # Pods for PheramorTest
-  pod 'lottie-ios'
-  pod 'Hero'
+  
   pod 'IHKeyboardAvoiding'
   pod 'HGCircularSlider'
   

@@ -1,21 +1,15 @@
 PODS:
-  - Hero (1.0.1)
   - HGCircularSlider (2.0.0)
   - IHKeyboardAvoiding (4.2)
-  - lottie-ios (2.1.5)
 
 DEPENDENCIES:
-  - Hero
   - HGCircularSlider
   - IHKeyboardAvoiding
-  - lottie-ios
 
 SPEC CHECKSUMS:
-  Hero: cee286821578e170d8c0c9c9cda7897357401112
   HGCircularSlider: 92e2ee098c814709f455b8f46cd9008147f6a869
   IHKeyboardAvoiding: 9fbf816b7c3c84911964802ff110d12caf40ebef
-  lottie-ios: 836cdbba92f62f3c6a00e37a4ce485321fe317cf
 
-PODFILE CHECKSUM: 9cb822051ff3f153ca6453ba0b310d1bb22ecf7a
+PODFILE CHECKSUM: d71b242acf1f02c179baf8b6ef81b40b008b8ba5
 
 COCOAPODS: 1.2.0
