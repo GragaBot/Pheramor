@@ -805,7 +805,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WGh-4J-5jD" customClass="RoundedImageView" customModule="PheramorTest" customModuleProvider="target">
                                 <rect key="frame" x="67" y="223" width="240" height="240"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NWZ-QL-97e" customClass="RoundedImageView" customModule="PheramorTest" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NWZ-QL-97e" customClass="RoundedImageView" customModule="PheramorTest" customModuleProvider="target">
                                 <rect key="frame" x="67" y="223" width="240" height="240"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="NWZ-QL-97e" secondAttribute="height" multiplier="1:1" id="adM-xk-pUC"/>
@@ -957,7 +957,7 @@
                                     <segue destination="yhP-68-yGs" kind="show" id="4j9-0d-xRs"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7x0-bo-bgA" customClass="RoundedImageView" customModule="PheramorTest" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7x0-bo-bgA" customClass="RoundedImageView" customModule="PheramorTest" customModuleProvider="target">
                                 <rect key="frame" x="123" y="43" width="128" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="7x0-bo-bgA" secondAttribute="height" multiplier="1:1" id="3qy-uW-Kz3"/>
