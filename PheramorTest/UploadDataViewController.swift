@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+
 
 class UploadDataViewController: UIViewController {
 
@@ -14,7 +16,6 @@ class UploadDataViewController: UIViewController {
         super.viewDidLoad()
         //uploadData()
         snowLove()
-        upload()
         // Do any additional setup after loading the view.
     }
 
@@ -37,41 +38,30 @@ class UploadDataViewController: UIViewController {
 
         var request = URLRequest(url:url)
         request.httpMethod = "POST"
-        //request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        //request.addValue("application/json", forHTTPHeaderField: "Accept")
         do {
             let jsonData = try jsonEncoder.encode(ProfileInfo.newUser)
             
             
             let jsonString = String(data: jsonData, encoding: .utf8)
-            print(jsonString!)
+            //print(jsonString!)
             
             
             let jsonDatas = jsonString?.data(using: .utf8)
             let dictionary = try? JSONSerialization.jsonObject(with: jsonDatas!, options: .mutableLeaves)
-            
-            
-            //request.httpBody = try JSONSerialization.data(withJSONObject: dictionary!, options: .prettyPrinted) // pass dictionary to nsdata object and set it as request body
-            request.httpBody = try JSONSerialization.data(withJSONObject: dictionary!, options: .prettyPrinted)
-            
-            
 
-            
-            
+          
+            request.httpBody = try JSONSerialization.data(withJSONObject: dictionary!, options: .prettyPrinted)
+      
         } catch let error {
+            print("here")
             print(error.localizedDescription)
             
             Config.showAlerts(title: "Error", message: "Registration Failed", handler: nil, controller: self)
             print(error.localizedDescription)
         }
         
-        //request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        //request.addValue("application/json", forHTTPHeaderField: "Accept") //
-        
-        
-        
- 
-        session.dataTask(with: request) {
+        print("POSTED")
+        session.dataTask(with: request){
             (data, response, error) in
             guard error == nil else {
                 print(error!)
@@ -81,25 +71,20 @@ class UploadDataViewController: UIViewController {
                 print("no data")
                 return
             }
-            
-            
-            
-            do{
-                
-                let jsonString = String(data: data, encoding: .utf8)
-                
-                print(jsonString!)
-                Config.showAlerts(title: "Returned Value", message: jsonString!, handler: nil, controller: self)
-                let responseData = jsonString!.data(using: .utf8)
-                if let responeJSON = (try JSONSerialization.jsonObject(with: responseData!, options: []) as? [String: Any]){
-                    
-                    print(responeJSON)
-                }
-            } catch  {
-                
+            guard let responseString = response else {
+                print("no response")
+                return
             }
-        }.resume()
+            print(responseString)
+            
+            guard let response =  String(data: data, encoding: .utf8) else {
+                Config.showAlerts(title: "Error", message: "Retrive Feedback Failed", handler: nil, controller: self)
+                return
+            }
+            Config.showAlerts(title: "Default Post Returned Value", message: response, handler: nil, controller: self)
 
+        }.resume()
+        
     }
     
     func snowLove(){
@@ -111,88 +96,96 @@ class UploadDataViewController: UIViewController {
         //emitter.emitterPosition
     }
     
-  
-    /*   testing purpose
-    func jsonStringToObject(String: String) {
-        let data = String.data(using: .utf8)!
-        do {
-            if let jsonArray = try JSONSerialization.jsonObject(with: data, options : .allowFragments) as? [Dictionary<String,Any>]
-            {
-                print(jsonArray)
-            } else {
-                print("bad json")
-            }
-        } catch let error as NSError {
-            print(error)
-        }
+    @IBAction func uploadViaAlamofire(_ sender: Any) {
+        let url = "https://external.dev.pheramor.com"
         
-        let parameters = ["name": "aaa", "password": "bbb" ]as Dictionary<String, String>
+       
+        let user = ProfileInfo.newUser
+        
+        let parameters = user?.dictionaryRepresentation
+        print("parameters")
+        print(parameters!)
 
-        print(parameters)
-    }*/
-    /*
-    func uploadData(){
-        
-        let postDictionary = ["status" : false,
-                              "message" :"OK"
-            ] as [String : Any]
-        let jsonEncoder = JSONEncoder()
-        guard let url = URL(string: "https://external.dev.pheramor.com") else { return}
-        //"https://jsonplaceholder.typicode.com/posts"
-        let session = URLSession.shared
-        
-        var request = URLRequest(url:url)
-        request.httpMethod = "POST"
-        do {
-            let jsonData = try jsonEncoder.encode(ProfileInfo.newUser)
+        Alamofire.request(url, method: .post, parameters: parameters ,encoding: JSONEncoding.default, headers: nil).responseJSON {
+            response in
             
-            
-            let jsonString = String(data: jsonData, encoding: .utf8)
-            //print(jsonString!)
-            
-            
-            let jsonDatas = jsonString?.data(using: .utf8)
-            let dictionary = try? JSONSerialization.jsonObject(with: jsonDatas!, options: .mutableLeaves)
-            
-            
-            //request.httpBody = try JSONSerialization.data(withJSONObject: dictionary!, options: .prettyPrinted) // pass dictionary to nsdata object and set it as request body
-            request.httpBody = try JSONSerialization.data(withJSONObject: postDictionary, options: .prettyPrinted)
-        } catch let error {
-            print(error.localizedDescription)
+            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
+                print("Data: \(utf8Text)")
+                // original server data as UTF8 string
+                
+                Config.showAlerts(title: "Alamofire Returned Value", message: utf8Text
+                    , handler: nil, controller: self)
+            } else {
+                Config.showAlerts(title: "Error", message: "Post Failed"
+                    , handler: nil, controller: self)
+            }
         }
         
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        //request.addValue("application/json", forHTTPHeaderField: "Accept") //
-        let task = session.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
-            
-            guard error == nil else {
-                return
+        
+        
+        /*
+        Alamofire.request(url).responseJSON { response in
+           
+            if let json = response.result.value {
+                print("JSON: \(json)") // serialized json response
+            }
+            if let jsonDict = response.result.value as? [String : Any] {
+                print("***")
+                print(jsonDict)
             }
             
-            guard let data = data else {
-                return
+            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
+                print("Data: \(utf8Text)") // original server data as UTF8 string
             }
+         
+         
             
-            let str = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
-            print(str!)
+            // I check the reason for serialization failure. It's because the formate for the JSON is bad. It should be {"status": true, "message": "OK"}
+            //If the returned data is {status: true, message: "OK"} the serialization would be able to locate the key thus could not generate JSON
+            //I also think firebase is much easier compare to JSON, where you do not have to worry about such issue.
             
-            do {
-                //create json object from data
-                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                    print(json)
-                    print("herer")
-                    // handle json...
+        }*/
+    }
+    
+    
+    @IBAction func alamofireTest(_ sender: Any) {
+        
+        let url = "https://jsonplaceholder.typicode.com/posts"
+        
+        
+        let user = ProfileInfo.newUser
+        
+        let parameters = user?.dictionaryRepresentation
+        print("parameters")
+        print(parameters!)
+        
+        Alamofire.request(url, method: .post, parameters: parameters ,encoding: JSONEncoding.default, headers: nil).responseJSON {
+            response in
+            switch response.result {
+            case .success:
+                print("SUCCESSS")
+               
+                
+                if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
+                    print("Data: \(utf8Text)") // original server data as UTF8 string
+                    Config.showAlerts(title: "Alamofire Returned Value", message: utf8Text
+                        , handler: nil, controller: self)
                 }
                 
-            } catch let error{
-                Config.showAlerts(title: "Error", message: "Registration Failed", handler: nil, controller: self)
-                print(error.localizedDescription)
+                break
+            case .failure(let error):
                 
+                print(error)
+                Config.showAlerts(title: "Error", message: "Registration Failed", handler: nil, controller: self)
             }
-        })
-        task.resume()
-        Config.showAlerts(title: "Congrats", message: "Registration Complete", handler: nil, controller: self)
-        
+        }
     }
-    */
+    
+    @IBAction func defaultUpload(_ sender: Any) {
+        upload()
+    }
+    
+    @IBAction func dismiss(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
 }

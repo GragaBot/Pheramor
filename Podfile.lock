@@ -1,15 +1,18 @@
 PODS:
+  - Alamofire (4.6.0)
   - HGCircularSlider (2.0.0)
   - IHKeyboardAvoiding (4.2)
 
 DEPENDENCIES:
+  - Alamofire
   - HGCircularSlider
   - IHKeyboardAvoiding
 
 SPEC CHECKSUMS:
+  Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
   HGCircularSlider: 92e2ee098c814709f455b8f46cd9008147f6a869
   IHKeyboardAvoiding: 9fbf816b7c3c84911964802ff110d12caf40ebef
 
-PODFILE CHECKSUM: d71b242acf1f02c179baf8b6ef81b40b008b8ba5
+PODFILE CHECKSUM: 2172a7a073d500a6ae38a3f7627478472b765152
 
 COCOAPODS: 1.2.0

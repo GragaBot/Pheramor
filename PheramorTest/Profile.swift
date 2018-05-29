@@ -70,45 +70,21 @@ class ProfileInfo : Encodable
         self.profileImage = profileImage
         
     }
-    
-    init?(json:[String: Any]){
-        guard let email = json["email"] as? String,
-              let password = json["password"] as? String,
-              let firstname = json["firstname"] as? String,
-              let lastname = json["lastname"] as? String,
-              let zipcode = json["zipcode"] as? Int,
-              let height = json["height"] as? Int,
-              let gender = json["gender"] as? String,
-              let dob = json["dob"] as? String,
-              let interestGender = json["interestGender"] as? String,
-              let interestAge = json["interestAge"] as? [Int],
-              let profileImage = json["profileImage"] as? String
-            
-            
-        else {
-            return nil
-        }
-        
-        self.email = email
-        self.password = password
-        self.firstname = firstname
-        self.lastname = lastname
-        self.zipcode = zipcode
-        self.height = height
-        self.gender = gender
-        self.dob = dob
-        self.interestGender = interestGender
-        self.interestAge = interestAge
-        self.race = json["race"] as? String
-        self.religion = json["religion"] as? String
-        self.profileImage = profileImage
-      
-        
+    var dictionaryRepresentation: [String: Any] {
+        return [
+            "email" : email,
+            "password" :  password,
+            "firstname" : firstname,
+            "lastname" :  lastname,
+            "zipcode" :  zipcode,
+            "height" :  height,
+            "gender" :  gender,
+            "dob" :  dob,
+            "interestGender" :  interestGender,
+            "interestAge" :  interestAge,
+            "race" :  race as Any,
+            "religion" :  religion as Any,
+            "profileImage" :  profileImage,
+        ]
     }
- 
-    
-
 }
-
-
-

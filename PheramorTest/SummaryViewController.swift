@@ -22,7 +22,6 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         /* either way works
          
         if let image = getSavedImage(named: "fileName") {
@@ -40,13 +39,13 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
         for child in mirror.children{
             keys.append(child.label!)
             value.append(child.value)
-            //print("key: \(String(describing: child.label)), value: \(child.value)")
+           
         }
         //print(keys)
         //print(value)
-        self.tableView.dataSource = self
+        tableView.dataSource = self
         
-        self.tableView.delegate = self
+        tableView.delegate = self
         
         for i in 0 ..< 13 {
             let math = CGFloat(222 - (10 * i))
@@ -56,8 +55,9 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
 
         
-        self.tableView.reloadDataWithAnimate(animationTime: 1, interval: 0.1)
-        
+        DispatchQueue.main.async {
+            self.tableView.reloadDataWithAnimate(animationTime: 1, interval: 0.2)
+        }
 
     }
     override func didReceiveMemoryWarning() {
@@ -66,6 +66,7 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return keys.count-1
+        
     }
     
     
@@ -133,6 +134,9 @@ extension UITableView {
     
         for i in 0...(count-1){
             let path : IndexPath = visibleArray.object(at: i) as! IndexPath
+            
+            //unexpected found nil when unwrapping and optional value
+            print(self.cellForRow(at: path)!)
             let cell : UITableViewCell = self.cellForRow(at: path)!
             cell.isHidden = true
             let originPoint : CGPoint = cell.center

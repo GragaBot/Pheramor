@@ -8,6 +8,9 @@ target 'PheramorTest' do
   
   pod 'IHKeyboardAvoiding'
   pod 'HGCircularSlider'
+  pod 'Alamofire'
+
+
   
 
 

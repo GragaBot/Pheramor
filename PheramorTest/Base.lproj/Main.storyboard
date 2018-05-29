@@ -838,12 +838,6 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="next:" destination="Ob8-L4-KhU" eventType="touchUpInside" id="zLK-3d-aiK"/>
-                                    <action selector="nextStep:" destination="ZcO-l0-JZt" eventType="touchUpInside" id="Lir-cu-U8o"/>
-                                    <action selector="nextStep:" destination="Rhc-XH-x3C" eventType="touchUpInside" id="QRC-jw-UuE"/>
-                                    <action selector="nextStep:" destination="MRQ-io-oUV" eventType="touchUpInside" id="Rwe-T9-iux"/>
-                                    <action selector="nextStep:" destination="pWI-8l-HDj" eventType="touchUpInside" id="XMM-Eg-8Gm"/>
-                                    <action selector="nextStep:" destination="ypz-P1-taD" eventType="touchUpInside" id="ptZ-8R-u4A"/>
                                     <segue destination="VTs-db-P0V" kind="show" id="uLz-m4-rPJ"/>
                                 </connections>
                             </button>
@@ -893,15 +887,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QCm-0e-fsV">
-                                <rect key="frame" x="16" y="179" width="343" height="488"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QCm-0e-fsV">
+                                <rect key="frame" x="0.0" y="179" width="375" height="488"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="summary" id="WTy-GC-NPq" customClass="SummaryTableViewCell" customModule="PheramorTest" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="343" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WTy-GC-NPq" id="PY1-AG-2Rr">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="htm-bS-IKZ">
@@ -988,13 +982,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="NNG-wn-MR7" firstAttribute="top" secondItem="hx5-3u-eoU" secondAttribute="top" constant="30" id="2I7-56-4Ak"/>
-                            <constraint firstItem="QCm-0e-fsV" firstAttribute="top" secondItem="7x0-bo-bgA" secondAttribute="bottom" constant="8" id="DwX-MM-8QO"/>
+                            <constraint firstItem="QCm-0e-fsV" firstAttribute="leading" secondItem="hx5-3u-eoU" secondAttribute="leading" id="LSp-xy-0df"/>
                             <constraint firstItem="9hT-5a-VNF" firstAttribute="leading" secondItem="hx5-3u-eoU" secondAttribute="leading" constant="16" id="Lm8-d0-xBc"/>
-                            <constraint firstItem="QCm-0e-fsV" firstAttribute="leading" secondItem="hx5-3u-eoU" secondAttribute="leading" constant="16" id="ObC-dw-nHe"/>
-                            <constraint firstItem="hx5-3u-eoU" firstAttribute="trailing" secondItem="QCm-0e-fsV" secondAttribute="trailing" constant="16" id="Z5Q-Rv-eWM"/>
-                            <constraint firstItem="QCm-0e-fsV" firstAttribute="bottom" secondItem="hx5-3u-eoU" secondAttribute="bottom" id="kor-m2-V2t"/>
+                            <constraint firstItem="QCm-0e-fsV" firstAttribute="trailing" secondItem="hx5-3u-eoU" secondAttribute="trailing" id="OeW-om-bXX"/>
+                            <constraint firstItem="QCm-0e-fsV" firstAttribute="top" secondItem="7x0-bo-bgA" secondAttribute="bottom" constant="8" id="PKO-Qs-Fqy"/>
+                            <constraint firstItem="QCm-0e-fsV" firstAttribute="bottom" secondItem="hx5-3u-eoU" secondAttribute="bottom" id="iE6-be-G3X"/>
                             <constraint firstItem="9hT-5a-VNF" firstAttribute="top" secondItem="hx5-3u-eoU" secondAttribute="top" constant="30" id="m2x-u1-qu4"/>
-                            <constraint firstItem="QCm-0e-fsV" firstAttribute="top" secondItem="7x0-bo-bgA" secondAttribute="bottom" constant="8" id="o4H-Zw-8ec"/>
                             <constraint firstItem="7x0-bo-bgA" firstAttribute="top" secondItem="hx5-3u-eoU" secondAttribute="top" constant="23" id="oom-27-cXf"/>
                             <constraint firstItem="hx5-3u-eoU" firstAttribute="trailing" secondItem="NNG-wn-MR7" secondAttribute="trailing" constant="16" id="ptN-m9-mlP"/>
                             <constraint firstItem="7x0-bo-bgA" firstAttribute="centerX" secondItem="hx5-3u-eoU" secondAttribute="centerX" id="rSy-M6-ZGf"/>
@@ -1017,13 +1010,103 @@
                     <view key="view" contentMode="scaleToFill" id="beN-zj-cHS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iJ1-Nd-ruW" customClass="RoundedButton" customModule="PheramorTest" customModuleProvider="target">
+                                <rect key="frame" x="16" y="50" width="50" height="50"/>
+                                <color key="backgroundColor" red="0.99991065260000001" green="0.54281663889999998" blue="0.8477417827" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="Euf-0l-851"/>
+                                    <constraint firstAttribute="height" constant="50" id="diZ-OQ-bO2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="24"/>
+                                <state key="normal" title="←">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismiss:" destination="yhP-68-yGs" eventType="touchUpInside" id="aGC-fz-I0u"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EFY-uR-73M" customClass="RoundedButton" customModule="PheramorTest" customModuleProvider="target">
+                                <rect key="frame" x="112" y="50" width="150" height="150"/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="KfH-We-cvF"/>
+                                    <constraint firstAttribute="height" constant="150" id="PQx-cP-6LW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="20"/>
+                                <state key="normal" title="Alamofire">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="uploadViaAlamofire:" destination="yhP-68-yGs" eventType="touchUpInside" id="5uZ-Du-Tna"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cXc-CU-Ls9" customClass="RoundedButton" customModule="PheramorTest" customModuleProvider="target">
+                                <rect key="frame" x="112" y="268.5" width="150" height="150"/>
+                                <color key="backgroundColor" red="0.99991065260000001" green="0.54281663889999998" blue="0.8477417827" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="BmF-ZA-KLA"/>
+                                    <constraint firstAttribute="height" constant="150" id="uOL-QX-NGu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="20"/>
+                                <state key="normal" title="Default">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="defaultUpload:" destination="yhP-68-yGs" eventType="touchUpInside" id="n8K-OF-3vf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iZ5-IY-FXU" customClass="RoundedButton" customModule="PheramorTest" customModuleProvider="target">
+                                <rect key="frame" x="112" y="487" width="150" height="150"/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="LWQ-Uf-ogE"/>
+                                    <constraint firstAttribute="height" constant="150" id="ZCG-lW-ac1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="20"/>
+                                <state key="normal" title="Alamofire">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="alamofireTest:" destination="yhP-68-yGs" eventType="touchUpInside" id="Adj-yL-PMa"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To Pheramor API Endpoint" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ynH-zh-eqI">
+                                <rect key="frame" x="112" y="200" width="150" height="13.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To Other API Endpoint" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iKn-xt-Rns">
+                                <rect key="frame" x="112" y="637" width="150" height="13.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cXc-CU-Ls9" firstAttribute="centerX" secondItem="5YW-e8-x08" secondAttribute="centerX" id="08k-MQ-jJC"/>
+                            <constraint firstItem="iJ1-Nd-ruW" firstAttribute="top" secondItem="5YW-e8-x08" secondAttribute="top" constant="30" id="DCy-Ab-F0L"/>
+                            <constraint firstItem="EFY-uR-73M" firstAttribute="centerX" secondItem="cXc-CU-Ls9" secondAttribute="centerX" id="DPo-b9-LUk"/>
+                            <constraint firstItem="ynH-zh-eqI" firstAttribute="width" secondItem="EFY-uR-73M" secondAttribute="width" id="F3n-DA-65r"/>
+                            <constraint firstItem="iJ1-Nd-ruW" firstAttribute="leading" secondItem="5YW-e8-x08" secondAttribute="leading" constant="16" id="J0D-eF-3kV"/>
+                            <constraint firstItem="iKn-xt-Rns" firstAttribute="width" secondItem="iZ5-IY-FXU" secondAttribute="width" id="Jdu-Yq-dg8"/>
+                            <constraint firstItem="ynH-zh-eqI" firstAttribute="top" secondItem="EFY-uR-73M" secondAttribute="bottom" id="O1b-pn-icy"/>
+                            <constraint firstItem="iZ5-IY-FXU" firstAttribute="top" secondItem="cXc-CU-Ls9" secondAttribute="bottom" constant="68.5" id="P91-YG-qp3"/>
+                            <constraint firstItem="cXc-CU-Ls9" firstAttribute="centerY" secondItem="5YW-e8-x08" secondAttribute="centerY" id="Z4Z-23-0BH"/>
+                            <constraint firstItem="iKn-xt-Rns" firstAttribute="centerX" secondItem="iZ5-IY-FXU" secondAttribute="centerX" id="ZeP-V0-RaA"/>
+                            <constraint firstItem="iKn-xt-Rns" firstAttribute="top" secondItem="iZ5-IY-FXU" secondAttribute="bottom" id="fcN-0z-2QD"/>
+                            <constraint firstItem="iZ5-IY-FXU" firstAttribute="centerX" secondItem="cXc-CU-Ls9" secondAttribute="centerX" id="foI-xX-24B"/>
+                            <constraint firstItem="ynH-zh-eqI" firstAttribute="centerX" secondItem="EFY-uR-73M" secondAttribute="centerX" id="jLx-K4-7b1"/>
+                            <constraint firstItem="cXc-CU-Ls9" firstAttribute="top" secondItem="EFY-uR-73M" secondAttribute="bottom" constant="68.5" id="wgW-VJ-X7o"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="5YW-e8-x08"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NkE-K8-sn1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6062" y="116"/>
+            <point key="canvasLocation" x="6061.6000000000004" y="115.59220389805098"/>
         </scene>
     </scenes>
     <resources>

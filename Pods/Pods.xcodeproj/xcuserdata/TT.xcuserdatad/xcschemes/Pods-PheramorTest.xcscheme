@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4AC47AB965706862935BBD17ABFEE347"
+               BlueprintIdentifier = "6AA0D98A8E48F8F1C3D1062FF87B8053"
                BuildableName = "Pods_PheramorTest.framework"
                BlueprintName = "Pods-PheramorTest"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -47,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4AC47AB965706862935BBD17ABFEE347"
+            BlueprintIdentifier = "6AA0D98A8E48F8F1C3D1062FF87B8053"
             BuildableName = "Pods_PheramorTest.framework"
             BlueprintName = "Pods-PheramorTest"
             ReferencedContainer = "container:Pods.xcodeproj">
