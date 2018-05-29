@@ -135,8 +135,7 @@ extension UITableView {
         for i in 0...(count-1){
             let path : IndexPath = visibleArray.object(at: i) as! IndexPath
             
-            //unexpected found nil when unwrapping and optional value
-            print(self.cellForRow(at: path)!)
+            
             let cell : UITableViewCell = self.cellForRow(at: path)!
             cell.isHidden = true
             let originPoint : CGPoint = cell.center
